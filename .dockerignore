@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules/
+*.json
+
+# Base javascript file
+configBase.js
+
+# README files
+*.md
+
+# Shell files
+*.sh
