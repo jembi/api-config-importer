@@ -1,12 +1,10 @@
 # Dependency directories
 node_modules/
-*.json
+package.json
+package-lock.json
 
 # Base javascript file
 configBase.js
 
 # README files
 *.md
-
-# Shell files
-*.sh
