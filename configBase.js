@@ -1,8 +1,8 @@
 'use strict'
 
-var axios = require('axios')
-var FormData = require('form-data')
-var fs = require('fs')
+const axios = require('axios')
+const FormData = require('form-data')
+const fs = require('fs')
 const path = require('path')
 
 const SERVICE_NAME = process.env.SERVICE_NAME
@@ -13,9 +13,10 @@ const API_USERNAME = process.env.API_USERNAME
 const SSL = process.env.SSL
 const CALLER_ID = process.env.CALLER_ID
 
+let data
 switch (CALLER_ID) {
   case 'jsr_config_importer':
-    var data = new FormData()
+    data = new FormData()
     data.append('form', fs.createReadStream(path.resolve(__dirname, 'export.jsrexport')))
     break;
 
@@ -30,14 +31,14 @@ switch (CALLER_ID) {
     break;
 }
 
-var protocol
+let protocol
 if (SSL == 'false') {
   protocol = 'http'
 } else {
   protocol = 'https'
 }
 
-var config = {
+let config = {
   method: 'post',
   url: `${protocol}://${SERVICE_NAME}:${SERVICE_API_PORT}${API_PATH}`,
   auth: {
