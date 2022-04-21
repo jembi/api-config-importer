@@ -1,4 +1,4 @@
-FROM node:erbium-alpine
+FROM node:12-alpine
 
 ADD config.js .
 
