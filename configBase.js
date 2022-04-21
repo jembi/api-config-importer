@@ -11,16 +11,16 @@ const SERVICE_API_PORT = process.env.SERVICE_API_PORT
 const API_PATH = process.env.API_PATH
 const API_USERNAME = process.env.API_USERNAME
 const JS_REPORT_SSL = process.env.JS_REPORT_SSL
-const CALLER_ID = process.env.CALLER_ID
+const BODY_DATA_FORMAT = process.env.BODY_DATA_FORMAT
 
 let data
-switch (CALLER_ID) {
-  case 'jsr_config_importer':
+switch (BODY_DATA_FORMAT) {
+  case 'multipart/form-data':
     data = new FormData()
     data.append('form', fs.createReadStream(path.resolve(__dirname, 'export.jsrexport')))
     break;
 
-  case 'openhim_config_importer':
+  case 'JSON':
     const jsonData = JSON.parse(
       fs.readFileSync(path.resolve(__dirname, 'openhim-import.json'))
     )
