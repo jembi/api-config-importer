@@ -40,9 +40,7 @@ The config importer depends on files placed in the config raft to attach as part
 
 ## Building locally
 
-To build the config-importer image locally, run the following commands:
-- `npm run build`
-- `docker build -t jembi/config-importer:<version-tag> .` <-- don't forget to include the period!
+To build the config-importer image locally, simply run `./build-image.sh` from the api-config-importer root directory.
 
 ## Notes
 

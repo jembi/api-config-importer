@@ -8,3 +8,6 @@ configBase.js
 
 # README files
 *.md
+
+# LICENSE
+LICENSE
