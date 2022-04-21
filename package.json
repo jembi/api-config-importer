@@ -1,5 +1,5 @@
 {
-  "name": "importer",
+  "name": "api-config-importer",
   "version": "1.0.0",
   "description": "A generic config importer which makes an API call to configure services running in a Docker swarm.",
   "repository": "https://github.com/jembi/api-config-importer",
@@ -11,8 +11,8 @@
   "author": "",
   "license": "Apache",
   "dependencies": {
-    "axios": "^0.26.1",
-    "esbuild": "^0.14.36",
-    "form-data": "^4.0.0"
+    "axios": "0.26.1",
+    "esbuild": "0.14.36",
+    "form-data": "4.0.0"
   }
 }
