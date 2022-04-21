@@ -31,12 +31,7 @@ switch (BODY_DATA_FORMAT) {
     break;
 }
 
-let protocol
-if (JS_REPORT_SSL == 'false') {
-  protocol = 'http'
-} else {
-  protocol = 'https'
-}
+const protocol = JS_REPORT_SSL == 'false' ? 'http' : 'https'
 
 let config = {
   method: 'post',
