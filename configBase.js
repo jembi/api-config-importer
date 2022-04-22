@@ -32,6 +32,7 @@ switch (BODY_DATA_FORMAT) {
 }
 
 const protocol = JS_REPORT_SSL == 'false' ? 'http' : 'https'
+const dataHeaders = data?.getHeaders() ?? {}
 
 let config = {
   method: 'post',
@@ -42,7 +43,7 @@ let config = {
   },
   headers: {
     'Content-Type': 'application/json',
-    ...data.getHeaders()
+    ...dataHeaders
   },
   data: data,
 }
