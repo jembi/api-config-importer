@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install npm
-        run: RUN npm ci --production && npm clean cache --force
+        run: npm ci --production && npm clean cache --force
 
       - name: Build module-independent config.js
         run: npm run build
