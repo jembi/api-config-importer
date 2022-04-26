@@ -10,7 +10,7 @@ const API_PASSWORD = process.env.API_PASSWORD
 const SERVICE_API_PORT = process.env.SERVICE_API_PORT
 const API_PATH = process.env.API_PATH
 const API_USERNAME = process.env.API_USERNAME
-const JS_REPORT_SSL = process.env.JS_REPORT_SSL
+const SSL = process.env.SSL
 const BODY_DATA_FORMAT = process.env.BODY_DATA_FORMAT
 
 let data
@@ -31,7 +31,7 @@ switch (BODY_DATA_FORMAT) {
     break;
 }
 
-const protocol = JS_REPORT_SSL == 'false' ? 'http' : 'https'
+const protocol = SSL == 'false' ? 'http' : 'https'
 const dataHeaders = data?.getHeaders() ?? {}
 
 let config = {
