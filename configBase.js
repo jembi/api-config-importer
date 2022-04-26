@@ -20,7 +20,7 @@ switch (MIME_TYPE) {
     data.append('form', fs.createReadStream(path.resolve(__dirname, 'export.jsrexport')))
     break;
 
-  case 'JSON':
+  case 'application/json':
     const jsonData = JSON.parse(
       fs.readFileSync(path.resolve(__dirname, 'openhim-import.json'))
     )
@@ -42,7 +42,7 @@ let config = {
     password: API_PASSWORD
   },
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': MIME_TYPE,
     ...dataHeaders
   },
   data: data,

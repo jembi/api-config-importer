@@ -29,7 +29,7 @@ services:
       API_PASSWORD: <service password>
       SSL: <true/false>
       API_PATH: <service config endpoint>
-      BODY_DATA_FORMAT: <mime type>
+      MIME_TYPE: <mime type>
     deploy:
       replicas: 1
       restart_policy:
@@ -40,7 +40,7 @@ SERVICE_NAME      --> The name of the service as specified in that service's com
 SERVICE_API_PORT  --> The port the service listens on from within the docker swarm (not the routed port)
 SSL               --> Set to true for a service running in secure (`https`) mode, and false otherwise
 API_PATH          --> The API endpoint the targeted API uses to import configs
-BODY_DATA_FORMAT  --> Currently supported options = `multipart/form-data`, `JSON`. Specify this field based on the request body data format
+MIME_TYPE  --> Currently supported options = `multipart/form-data`, `application/json`. Specify this field based on the request body data format
 
 The config importer depends on files placed in the config raft to attach as part of the request body. So, remember to specify your configs in the compose file. 
 
