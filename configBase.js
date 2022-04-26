@@ -11,10 +11,10 @@ const SERVICE_API_PORT = process.env.SERVICE_API_PORT
 const API_PATH = process.env.API_PATH
 const API_USERNAME = process.env.API_USERNAME
 const SSL = process.env.SSL
-const BODY_DATA_FORMAT = process.env.BODY_DATA_FORMAT
+const MIME_TYPE = process.env.MIME_TYPE
 
 let data
-switch (BODY_DATA_FORMAT) {
+switch (MIME_TYPE) {
   case 'multipart/form-data':
     data = new FormData()
     data.append('form', fs.createReadStream(path.resolve(__dirname, 'export.jsrexport')))
