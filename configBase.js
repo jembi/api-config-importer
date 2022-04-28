@@ -5,6 +5,7 @@ const FormData = require('form-data')
 const fs = require('fs')
 const path = require('path')
 
+const HTTP_METHOD = process.env.HTTP_METHOD ?? "POST"
 const SERVICE_NAME = process.env.SERVICE_NAME
 const API_PASSWORD = process.env.API_PASSWORD
 const SERVICE_API_PORT = process.env.SERVICE_API_PORT
@@ -38,7 +39,7 @@ switch (MIME_TYPE) {
 const protocol = SSL == 'false' ? 'http' : 'https'
 
 let config = {
-  method: 'post',
+  method: HTTP_METHOD,
   url: `${protocol}://${SERVICE_NAME}:${SERVICE_API_PORT}${API_PATH}`,
   auth: {
     username: API_USERNAME,
