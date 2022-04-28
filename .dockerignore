@@ -1,0 +1,13 @@
+# Dependency directories
+node_modules/
+package.json
+package-lock.json
+
+# Base javascript file
+configBase.js
+
+# README files
+*.md
+
+# LICENSE
+LICENSE
