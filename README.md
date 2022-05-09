@@ -23,6 +23,7 @@ services:
   <service to configure>-config-importer:
     image: jembi/config-importer:<version-tag>
     environment:
+      HTTP_METHOD: <http method>
       SERVICE_NAME: <service name>
       SERVICE_API_PORT: <service port>
       API_USERNAME: <service username>
@@ -37,6 +38,7 @@ services:
         condition: none
 ```
 
+HTTP_METHOD       --> The the http verb you wish to use ("POST", "PUT", etc)
 SERVICE_NAME      --> The name of the service as specified in that service's compose file
 SERVICE_API_PORT  --> The port the service listens on from within the docker swarm (not the routed port)
 SSL               --> Set to true for a service running in secure (`https`) mode, and false otherwise
