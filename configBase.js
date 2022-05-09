@@ -14,6 +14,7 @@ const API_USERNAME = process.env.API_USERNAME
 const SSL = process.env.SSL
 const MIME_TYPE = process.env.MIME_TYPE
 const CONFIG_FILE = process.env.CONFIG_FILE
+const ADDITIONAL_HEADERS = process.env.ADDITIONAL_HEADERS ?? ''
 
 let data
 let dataHeaders = {}
@@ -21,8 +22,10 @@ let dataHeaders = {}
 switch (MIME_TYPE) {
   case 'multipart/form-data':
     data = new FormData()
-    data.append('form', fs.createReadStream(path.resolve(__dirname, CONFIG_FILE)))
+    data.append('file', fs.createReadStream(path.resolve(__dirname, CONFIG_FILE)))
+
     dataHeaders = data.getHeaders()
+    ADDITIONAL_HEADERS ? Object.assign(dataHeaders, JSON.parse(ADDITIONAL_HEADERS)) : ""
     break;
 
   case 'application/json':
