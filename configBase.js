@@ -25,7 +25,9 @@ switch (MIME_TYPE) {
     data.append('file', fs.createReadStream(path.resolve(__dirname, CONFIG_FILE)))
 
     dataHeaders = data.getHeaders()
-    ADDITIONAL_HEADERS ? Object.assign(dataHeaders, JSON.parse(ADDITIONAL_HEADERS)) : ""
+    if (ADDITIONAL_HEADERS) {
+      dataHeaders = { ...dataHeaders, ...JSON.parse(ADDITIONAL_HEADERS) }
+    }
     break;
 
   case 'application/json':
