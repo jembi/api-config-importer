@@ -57,11 +57,21 @@ let config = {
   data: data,
 }
 
-axios(config)
+let i = 0;
+
+const interval = setInterval(()=> {
+  i++
+  if(i == 5) clearInterval(interval);
+  
+  axios(config)
   .then(function (response) {
     console.log(JSON.stringify(response.data))
+    process.exit(0)
   })
   .catch(function (error) {
     console.log(error)
-    process.exit(1)
+    if(i == 5) process.exit(1)
+    
+    console.log("Retry in 3s")
   })
+}, 3000)
